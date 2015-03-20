@@ -59,14 +59,15 @@ namespace ExpediaTest
             var target = new Flight(new DateTime(2015, 3, 19), new DateTime(2015, 3, 29), 750);
             var otherTarget = new Flight(new DateTime(2015, 3, 19), new DateTime(2015, 3, 29), 750);
             Assert.IsTrue(target.Equals(otherTarget));
+            int otherTypeTarget = 7;
+            Assert.False(target.Equals(otherTypeTarget));
         }
 
         [Test()]
-        public void TestFlightEqualsOnAnotherObject()
+        public void TestFlightEqualsOnTargetCast()
         {
             var target = new Flight(new DateTime(2015, 3, 19), new DateTime(2015, 3, 29), 750);
-            int otherTarget = 7;
-            Assert.False(target.Equals(otherTarget));
+            Assert.IsTrue(target.Equals(target as object));
 
         }
 	}
